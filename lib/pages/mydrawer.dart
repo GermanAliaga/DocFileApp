@@ -23,7 +23,7 @@ class _MyDrawerState extends State<MyDrawer> {
           height: 125,
           child: DrawerHeader(
             decoration: BoxDecoration(
-              color: Color.fromARGB(249, 232, 169, 122),
+              color: Color.fromARGB(248, 206, 174, 245),
             ),
             child: Text(
               'HomeCoffee',
@@ -35,24 +35,16 @@ class _MyDrawerState extends State<MyDrawer> {
           title: const Text('MyHomePage'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MyHomePage(
-                          title: 'MyHomePage',
-                        )));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MyHomePage()));
           },
         ),
         ListTile(
           title: const Text('AddFile'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const AddFile(
-                          title: 'AddFile',
-                        )));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddFile()));
           },
         ),
         ListTile(
@@ -60,11 +52,7 @@ class _MyDrawerState extends State<MyDrawer> {
           onTap: () {
             Navigator.pop(context);
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const User(
-                          title: 'User',
-                        )));
+                context, MaterialPageRoute(builder: (context) => const User()));
           },
         ),
       ],
