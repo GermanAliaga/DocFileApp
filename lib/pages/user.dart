@@ -18,6 +18,7 @@ class _UserState extends State<User> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             bottom: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.directions_car)),

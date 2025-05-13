@@ -23,7 +23,7 @@ class _MyDrawerState extends State<MyDrawer> {
           height: 125,
           child: DrawerHeader(
             decoration: BoxDecoration(
-              color: Color.fromARGB(248, 206, 174, 245),
+              color: Color.fromARGB(248, 87, 221, 255),
             ),
             child: Text(
               'HomeCoffee',
