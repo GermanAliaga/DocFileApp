@@ -1,3 +1,4 @@
+import 'package:docfileapp/pages/detailexam.dart';
 import 'package:docfileapp/pages/mydrawer.dart';
 import 'package:flutter/material.dart';
 
@@ -31,9 +32,47 @@ class _DetailCategoryState extends State<DetailCategory> {
             return Padding(
                 padding: const EdgeInsets.all(3),
                 child: ListTile(
-                  title: Text(elements[index]),
-                  tileColor: const Color.fromARGB(248, 87, 221, 255),
-                ));
+                    title: Text(elements[index]),
+                    tileColor: const Color.fromARGB(248, 87, 221, 255),
+                    onTap: () {
+                      switch (index) {
+                        case 0:
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DetailExam(title: 'Examen 1')));
+                          break;
+                        case 1:
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DetailExam(title: 'Examen 2')));
+                          break;
+                        case 2:
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DetailExam(title: 'Examen 3')));
+                          break;
+                        case 3:
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DetailExam(title: 'Examen 4')));
+                          break;
+                        default:
+                          const snackbar = SnackBar(content: Text('wrong'));
+                          break;
+                      }
+                    }));
           },
         ));
   }
