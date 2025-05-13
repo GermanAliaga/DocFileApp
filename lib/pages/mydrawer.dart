@@ -23,7 +23,7 @@ class _MyDrawerState extends State<MyDrawer> {
           height: 125,
           child: DrawerHeader(
             decoration: BoxDecoration(
-              color: Color.fromARGB(248, 87, 221, 255),
+              color: Color.fromARGB(248, 117, 208, 231),
             ),
             child: Text(
               'DocFileApp',

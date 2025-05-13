@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String logo = "assets/icons/216411_star_icon.svg";
+  String logo = "assets/icons/AppIcon.svg";
   Timer? _timer;
 
   @override
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
           SvgPicture.asset(
             logo,
             semanticsLabel: 'Logo',
-            width: 200,
+            width: 150,
           ),
           const Text(
             'DocFileApp',

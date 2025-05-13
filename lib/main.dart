@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(248, 87, 221, 255)),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );
   }
