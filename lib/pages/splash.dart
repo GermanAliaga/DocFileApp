@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Color.fromARGB(248, 179, 255, 252),
         Color.fromARGB(248, 87, 221, 255),
         Color.fromARGB(255, 33, 103, 182)
-      ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -48,6 +48,12 @@ class _SplashScreenState extends State<SplashScreen> {
             logo,
             semanticsLabel: 'Logo',
             width: 200,
+          ),
+          const Text(
+            'DocFileApp',
+            style: TextStyle(
+              fontSize: 30,
+            ),
           )
         ],
       ),

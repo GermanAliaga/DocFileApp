@@ -16,7 +16,7 @@ class _AddFileState extends State<AddFile> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('Add File'),
+          title: const Text('Add File'),
         ),
         drawer: const MyDrawer(),
         body: const Center(

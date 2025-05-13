@@ -1,4 +1,3 @@
-import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:docfileapp/pages/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(248, 87, 221, 255)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(248, 87, 221, 255)),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

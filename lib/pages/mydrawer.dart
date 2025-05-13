@@ -26,7 +26,7 @@ class _MyDrawerState extends State<MyDrawer> {
               color: Color.fromARGB(248, 87, 221, 255),
             ),
             child: Text(
-              'HomeCoffee',
+              'DocFileApp',
               style: TextStyle(fontSize: 30),
             ),
           ),
