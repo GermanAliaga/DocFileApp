@@ -32,7 +32,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
         ),
         ListTile(
-          title: const Text('MyHomePage'),
+          title: const Text('Inicio'),
           onTap: () {
             Navigator.pop(context);
             Navigator.push(context,
@@ -40,7 +40,7 @@ class _MyDrawerState extends State<MyDrawer> {
           },
         ),
         ListTile(
-          title: const Text('AddFile'),
+          title: const Text('Agregar documento'),
           onTap: () {
             Navigator.pop(context);
             Navigator.push(context,
@@ -48,7 +48,7 @@ class _MyDrawerState extends State<MyDrawer> {
           },
         ),
         ListTile(
-          title: const Text('User'),
+          title: const Text('Perfil'),
           onTap: () {
             Navigator.pop(context);
             Navigator.push(

@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('My Home Page'),
+        title: const Text('Inicio'),
       ),
       body: ListView.builder(
         itemCount: elements.length,
@@ -75,6 +75,41 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ));
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+                    content: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      const Text(
+                        'Nombre especialidad',
+                      ),
+                      const TextField(
+                          decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Ingresar nombre',
+                      )),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MyHomePage()));
+                        },
+                        child: const Text('Agregar especialidad'),
+                      )
+                    ],
+                  ),
+                ))),
+        child: const Icon(
+          Icons.add,
+          size: 40,
+          semanticLabel: 'AddSickness',
+        ),
       ),
       drawer: const MyDrawer(),
     );

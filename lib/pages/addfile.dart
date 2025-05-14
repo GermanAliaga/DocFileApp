@@ -24,7 +24,7 @@ class _AddFileState extends State<AddFile> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Creación nueva receta'),
+        title: const Text('Agregar documento'),
       ),
       drawer: const MyDrawer(),
       body: Center(

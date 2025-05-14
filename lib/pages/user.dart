@@ -11,37 +11,70 @@ class User extends StatefulWidget {
 class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
+    final List<String> elements = [
+      'Asma',
+      'Diabetes',
+      'Hipertensión',
+      'Hipotiroidismo'
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('User'),
+        title: const Text('Perfil'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       drawer: const MyDrawer(),
-      body: const Center(
-        child: Column(
-          children: [
-            Icon(
-              Icons.person,
-              size: 100,
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const SizedBox(
+            height: 250,
+            width: 300,
+            child: Card(
+                color: Color.fromARGB(248, 146, 215, 232),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.person,
+                        size: 100,
+                      ),
+                      Text(
+                        'Jhon Doe',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      Text(
+                        'Edad: 25',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Text(
+                        'Altura: 180 cm',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Text(
+                        'Peso: 100 kg',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ])),
+          ),
+          const Text(
+            'Enfermedades',
+            style: TextStyle(fontSize: 20),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: elements.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                    padding: const EdgeInsets.all(3),
+                    child: ListTile(
+                      title: Text(elements[index]),
+                      tileColor: const Color.fromARGB(248, 117, 208, 231),
+                    ));
+              },
             ),
-            Text(
-              'Jhon Doe',
-              style: TextStyle(fontSize: 25),
-            ),
-            Text(
-              'Edad: 25',
-              style: TextStyle(fontSize: 15),
-            ),
-            Text(
-              'Altura: 180 cm',
-              style: TextStyle(fontSize: 15),
-            ),
-            Text(
-              'Peso: 100 kg',
-              style: TextStyle(fontSize: 15),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showDialog<String>(
@@ -55,10 +88,12 @@ class _UserState extends State<User> {
                         'Nombre enfermedad',
                       ),
                       const TextField(
+                          maxLines: 3,
+                          textAlign: TextAlign.justify,
                           decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Ingresar nombre',
-                      )),
+                            border: OutlineInputBorder(),
+                            hintText: 'Ingresar nombre',
+                          )),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -68,7 +103,7 @@ class _UserState extends State<User> {
                                   builder: (context) => const User()));
                         },
                         child: const Text('Agregar enfermedad'),
-                      )
+                      ),
                     ],
                   ),
                 ))),
