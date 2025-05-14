@@ -67,15 +67,26 @@ class _AddFileState extends State<AddFile> {
                     return DropdownMenuItem(value: value, child: Text(value));
                   }).toList(),
                 ),
+                const SizedBox(
+                    width: 300,
+                    height: 300,
+                    child: Card(
+                      color: Color.fromARGB(248, 138, 210, 227),
+                      child: Icon(
+                        Icons.add,
+                        size: 100,
+                      ),
+                    )),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MyHomePage()));
-                    },
-                    child: const Text('Agregar exámen')),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyHomePage()));
+                  },
+                  child: const Text('Agregar exámen'),
+                )
               ],
             )),
       ),
