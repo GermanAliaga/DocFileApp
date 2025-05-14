@@ -1,5 +1,3 @@
-import 'dart:ui_web';
-
 import 'package:docfileapp/pages/mydrawer.dart';
 import 'package:flutter/material.dart';
 
@@ -21,13 +19,12 @@ class _DetailExamState extends State<DetailExam> {
           title: Text(widget.title),
         ),
         drawer: const MyDrawer(),
-        body: const Center(
-          child: Column(
-            children: [
-              Text('Detail Exam page'),
-            ],
+        body: SizedBox(
+            child: Card(
+          color: const Color.fromARGB(248, 146, 215, 232),
+          child: Image.asset(
+            'assets/images/examenes.jpg',
           ),
-          //child: Image.asset('assets/icons/examen.jpg')
-        ));
+        )));
   }
 }

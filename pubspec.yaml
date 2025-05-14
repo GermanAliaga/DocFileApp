@@ -64,7 +64,8 @@ flutter:
   assets:
     - assets/icons/216411_star_icon.svg
     - assets/icons/AppIcon.svg
-    - assets/icons/examen.jpg
+    - assets/images/examen.jpg
+    - assets/images/examenes.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
