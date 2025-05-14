@@ -1,3 +1,5 @@
+import 'package:docfileapp/pages/mydrawer.dart';
+import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:flutter/material.dart';
 
 class AddFile extends StatefulWidget {
@@ -7,7 +9,16 @@ class AddFile extends StatefulWidget {
   State<AddFile> createState() => _AddFileState();
 }
 
+const List<String> categorias = <String>[
+  'Cardiología',
+  'Traumatología',
+  'Diabetología',
+  'Kinesiología'
+];
+
 class _AddFileState extends State<AddFile> {
+  String dropdownvalue = categorias.first;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +26,7 @@ class _AddFileState extends State<AddFile> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Creación nueva receta'),
       ),
+      drawer: const MyDrawer(),
       body: Center(
         child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -31,74 +43,37 @@ class _AddFileState extends State<AddFile> {
                   hintText: 'Ingresar nombre',
                 )),
                 const Text(
-                  'Fecha ',
-                  style: TextStyle(fontSize: 15),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text('+Leche', style: TextStyle(fontSize: 10))),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text('+Crema', style: TextStyle(fontSize: 10))),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text('+Café', style: TextStyle(fontSize: 10))),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text('+Azúcar', style: TextStyle(fontSize: 10))),
-                  ],
-                ),
-                const Text(
-                  'Herramientas',
-                  style: TextStyle(fontSize: 15),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('+Cafetera\nitaliana',
-                            style: TextStyle(fontSize: 10))),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('+Filtro\npapel',
-                            style: TextStyle(fontSize: 10))),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('+Espumador',
-                            style: TextStyle(fontSize: 10))),
-                  ],
-                ),
-                const Text(
-                  'Preparación:',
+                  'Fecha realización',
                   style: TextStyle(fontSize: 15),
                 ),
                 const TextField(
                     decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Describir preparación',
+                  hintText: 'Ingresar fecha',
                 )),
                 const Text(
-                  'Tiempo preparación:',
+                  'Categoría',
                   style: TextStyle(fontSize: 15),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(onPressed: () {}, child: Icon(Icons.remove)),
-                    const Text(
-                      '00:00:00',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    ElevatedButton(onPressed: () {}, child: Icon(Icons.add)),
-                  ],
+                DropdownButton<String>(
+                  value: dropdownvalue,
+                  onChanged: (String? value) {
+                    setState(() {
+                      dropdownvalue = value!;
+                    });
+                  },
+                  items:
+                      categorias.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem(value: value, child: Text(value));
+                  }).toList(),
                 ),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyHomePage()));
                     },
                     child: const Text('Agregar exámen')),
               ],

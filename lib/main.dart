@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(248, 87, 221, 255)),
         useMaterial3: true,
+        fontFamily: 'Roboto',
       ),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
