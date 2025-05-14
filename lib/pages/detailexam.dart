@@ -20,11 +20,9 @@ class _DetailExamState extends State<DetailExam> {
         ),
         drawer: const MyDrawer(),
         body: SizedBox(
-            child: Card(
-          color: const Color.fromARGB(248, 146, 215, 232),
           child: Image.asset(
-            'assets/images/examenes.jpg',
+            'assets/images/examen1.png',
           ),
-        )));
+        ));
   }
 }

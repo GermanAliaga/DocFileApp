@@ -34,7 +34,7 @@ class _AddFileState extends State<AddFile> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const Text(
-                  'Nombre exámen:',
+                  'Nombre examen:',
                   style: TextStyle(fontSize: 15),
                 ),
                 const TextField(
@@ -85,7 +85,7 @@ class _AddFileState extends State<AddFile> {
                         MaterialPageRoute(
                             builder: (context) => const MyHomePage()));
                   },
-                  child: const Text('Agregar exámen'),
+                  child: const Text('Agregar examen'),
                 )
               ],
             )),
