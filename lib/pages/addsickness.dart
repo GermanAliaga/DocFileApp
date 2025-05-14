@@ -1,49 +1,41 @@
+import 'package:docfileapp/pages/user.dart';
 import 'package:flutter/material.dart';
 
 class AddSickness extends StatefulWidget {
-  const AddSickness({super.key, required this.title});
-
-  final String title;
+  const AddSickness({
+    super.key,
+  });
 
   @override
   State<AddSickness> createState() => _AddSicknessState();
 }
 
 class _AddSicknessState extends State<AddSickness> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+    return AlertDialog(
+        content: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          const Text(
+            'Nombre enfermedad',
+          ),
+          const TextField(
+              decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Ingresar nombre',
+          )),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const User()));
+            },
+            child: const Text('Agregar enfermedad'),
+          )
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+    ));
   }
 }
