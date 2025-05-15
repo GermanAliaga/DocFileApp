@@ -1,16 +1,26 @@
-# docfileapp
 
-A new Flutter project.
+# DocFileApp
+### Germán Aliaga
+#### url repositorio: https://github.com/GermanAliaga/DocFileApp
+#### url video Youtube: 
+DocFileApp es una aplicación que permite tener en el celular todos los resultados de exámenes de salud realizados alguna vez por el usuario, mantreniendo así un historial medico del paciente a la mano, además de estar ordenado por especialidades médicas.
+También es posible dentro de la pantalla de usuario agregar los datos del paciente, como su edad, peso, altura, nombre y enfermedades padecidas, permitiendo al paciente recordar con mayor claridad sus enfermedades.
 
-## Getting Started
+# Casos de usuario
 
-This project is a starting point for a Flutter application.
+El usuario debe ser capaz de:
 
-A few resources to get you started if this is your first Flutter project:
+- Acceder a las especialidades médicas
+- Agregar una nueva especialidad
+- Acceder a los exámenes ingresados en cada especialidad
+- Ver el detalle del examen seleccionado
+- Ingresar un nuevo examen a la aplicación
+- Revisar su información personal
+- Ver el listado de sus enfermedades
+- Agregar una enfermedad al listado
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Diagrama
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![Diagrama](https://drive.google.com/drive/my-drive)
+
