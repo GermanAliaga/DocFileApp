@@ -22,5 +22,5 @@ El usuario debe ser capaz de:
 # Diagrama
 
 
-![Diagrama](https://drive.google.com/drive/my-drive)
+![Diagrama](https://drive.google.com/file/d/1JPWQM1-evR0-sHfv1i2XqkOcYZr4Q3m7/view?usp=sharing)
 
