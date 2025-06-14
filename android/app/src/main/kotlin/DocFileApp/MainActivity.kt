@@ -1,4 +1,4 @@
-package DocFileApp
+package DocFileApp.
 
 import io.flutter.embedding.android.FlutterActivity
 
