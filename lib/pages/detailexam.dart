@@ -14,15 +14,18 @@ class _DetailExamState extends State<DetailExam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      drawer: const MyDrawer(),
+      body: SizedBox(
+          child: Column(children: [
+        Image.asset(
+          'assets/images/examen1.png',
         ),
-        drawer: const MyDrawer(),
-        body: SizedBox(
-          child: Image.asset(
-            'assets/images/examen1.png',
-          ),
-        ));
+        FloatingActionButton(onPressed: () {})
+      ])),
+    );
   }
 }
