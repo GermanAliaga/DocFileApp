@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String logo = "assets/icons/AppIcon.svg";
+  String logo = "assets/icons/LogoApp.svg";
   Timer? _timer;
 
   @override
