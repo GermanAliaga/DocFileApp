@@ -1,4 +1,3 @@
-import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
 
 class DetailExam extends StatefulWidget {
@@ -18,14 +17,22 @@ class _DetailExamState extends State<DetailExam> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      drawer: const MyDrawer(),
       body: SizedBox(
-          child: Column(children: [
-        Image.asset(
-          'assets/images/examen1.png',
-        ),
-        FloatingActionButton(onPressed: () {})
-      ])),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+            Image.asset(
+              'assets/images/examen1.png',
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Volver',
+              ),
+            )
+          ])),
     );
   }
 }

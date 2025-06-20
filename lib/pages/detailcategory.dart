@@ -37,7 +37,6 @@ class _DetailCategoryState extends State<DetailCategory> {
                     onTap: () {
                       switch (index) {
                         case 0:
-                          Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -45,7 +44,6 @@ class _DetailCategoryState extends State<DetailCategory> {
                                       const DetailExam(title: 'Examen 1')));
                           break;
                         case 1:
-                          Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -53,7 +51,6 @@ class _DetailCategoryState extends State<DetailCategory> {
                                       const DetailExam(title: 'Examen 2')));
                           break;
                         case 2:
-                          Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -61,7 +58,6 @@ class _DetailCategoryState extends State<DetailCategory> {
                                       const DetailExam(title: 'Examen 3')));
                           break;
                         case 3:
-                          Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(

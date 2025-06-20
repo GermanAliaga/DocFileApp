@@ -26,6 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Inicio'),
       ),
+      drawer: const MyDrawer(),
       body: ListView.builder(
         itemCount: elements.length,
         itemBuilder: (context, index) {
@@ -111,7 +112,6 @@ class _MyHomePageState extends State<MyHomePage> {
           semanticLabel: 'AddSickness',
         ),
       ),
-      drawer: const MyDrawer(),
     );
   }
 }
