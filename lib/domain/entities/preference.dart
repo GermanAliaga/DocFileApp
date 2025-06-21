@@ -8,7 +8,7 @@ class AppData extends ChangeNotifier {
   String _font = 'Roboto';
   String get font => _font;
 
-  double _sizeFont = 15;
+  double _sizeFont = 5;
   double get sizeFont => _sizeFont;
 
   List<String> fuentes = <String>[
@@ -39,6 +39,10 @@ class AppData extends ChangeNotifier {
   void setFont(String selectedFont) {
     _font = selectedFont;
     notifyListeners();
+  }
+
+  void setFontSize(double size) {
+    _sizeFont = _sizeFont + size;
   }
 }
 
