@@ -72,6 +72,23 @@ class _PreferencePageState extends State<PreferencePage> {
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Text('Tamaño fuente'),
+                TextButton(
+                    onPressed: () {
+                      appData.setFontSize(false);
+                    },
+                    child: const Icon(Icons.remove)),
+                Text('${appData.sizeFont}'),
+                TextButton(
+                    onPressed: () {
+                      appData.setFontSize(true);
+                    },
+                    child: const Icon(Icons.add))
+              ],
+            )
           ],
         ),
       ),

@@ -3,8 +3,9 @@ import "package:flutter/material.dart";
 
 class MaterialTheme {
   final TextTheme textTheme;
+  final double fontSize;
 
-  const MaterialTheme(this.textTheme);
+  const MaterialTheme(this.textTheme, {this.fontSize = 14.0});
 
   static ColorScheme lightScheme() {
     return const ColorScheme(
@@ -116,17 +117,29 @@ class MaterialTheme {
     return theme(darkScheme());
   }
 
-  ThemeData theme(ColorScheme colorScheme) => ThemeData(
-        useMaterial3: true,
-        brightness: colorScheme.brightness,
-        colorScheme: colorScheme,
-        textTheme: textTheme.apply(
-          bodyColor: colorScheme.onSurface,
-          displayColor: colorScheme.onSurface,
-        ),
-        scaffoldBackgroundColor: colorScheme.background,
-        canvasColor: colorScheme.surface,
-      );
+  ThemeData theme(ColorScheme colorScheme) {
+    final adjustedTextTheme = textTheme.copyWith(
+      bodySmall: textTheme.bodySmall?.copyWith(fontSize: fontSize - 2),
+      bodyMedium: textTheme.bodyMedium?.copyWith(fontSize: fontSize),
+      bodyLarge: textTheme.bodyLarge?.copyWith(fontSize: fontSize + 2),
+      titleMedium: textTheme.titleMedium?.copyWith(fontSize: fontSize + 2),
+      titleLarge: textTheme.titleLarge?.copyWith(fontSize: fontSize + 4),
+      displaySmall: textTheme.displaySmall?.copyWith(fontSize: fontSize + 6),
+      displayMedium: textTheme.displayMedium?.copyWith(fontSize: fontSize + 8),
+    );
+
+    return ThemeData(
+      useMaterial3: true,
+      brightness: colorScheme.brightness,
+      colorScheme: colorScheme,
+      textTheme: adjustedTextTheme.apply(
+        bodyColor: colorScheme.onSurface,
+        displayColor: colorScheme.onSurface,
+      ),
+      scaffoldBackgroundColor: colorScheme.background,
+      canvasColor: colorScheme.surface,
+    );
+  }
 
   /// Custom Color 1
   static const customColor1 = ExtendedColor(

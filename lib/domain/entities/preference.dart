@@ -8,7 +8,7 @@ class AppData extends ChangeNotifier {
   String _font = 'Roboto';
   String get font => _font;
 
-  double _sizeFont = 5;
+  double _sizeFont = 14.0;
   double get sizeFont => _sizeFont;
 
   List<String> fuentes = <String>[
@@ -19,8 +19,8 @@ class AppData extends ChangeNotifier {
 
   late final TextTheme baseTextTheme;
   late final MaterialTheme themeApp;
-  late final ThemeData lightTheme;
-  late final ThemeData darkTheme;
+  late ThemeData lightTheme;
+  late ThemeData darkTheme;
 
   ThemeData get themeHoleApp => _themeDark ? darkTheme : lightTheme;
 
@@ -41,8 +41,24 @@ class AppData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setFontSize(double size) {
-    _sizeFont = _sizeFont + size;
+  void setFontSize(bool add) {
+    if (add == true && _sizeFont < 30) {
+      _sizeFont = _sizeFont + 2;
+    } else if (add == false && _sizeFont > 14) {
+      _sizeFont = _sizeFont - 2;
+    } else if (_sizeFont == 14) {
+      _sizeFont = 14;
+    }
+    _rebuildThemes();
+    notifyListeners();
+  }
+
+  void _rebuildThemes() {
+    final baseTextTheme = Typography.material2021().black;
+    final MaterialTheme themeApp =
+        MaterialTheme(baseTextTheme, fontSize: _sizeFont);
+    lightTheme = themeApp.light();
+    darkTheme = themeApp.dark();
   }
 }
 
