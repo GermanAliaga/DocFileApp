@@ -61,36 +61,3 @@ class AppData extends ChangeNotifier {
     darkTheme = themeApp.dark();
   }
 }
-
-/*class AppData extends ChangeNotifier {
-  bool _themeDark = false;
-  bool get themeDark => _themeDark;
-
-  List<String> fuentes = <String>[
-    'Roboto',
-    'Helvetica',
-    'Caramel',
-  ];
-
-  final TextTheme baseTextTheme = Typography.material2021().black;
-  final MaterialTheme themeApp = MaterialTheme(baseTextTheme);
-
-  final ThemeData lightTheme = themeApp.light();
-  final ThemeData darkTheme = themeApp.dark();
-
-  final ThemeData _themeHoleApp = lightTheme;
-  ThemeData get themeHoleApp => _themeHoleApp;
-
-  String _font = 'Roboto';
-  String get font => _font;
-
-  void boolState(bool boolCounter) {
-    _themeDark = boolCounter;
-    notifyListeners();
-  }
-
-  void setFont(String selectedFont) {
-    _font = selectedFont;
-    notifyListeners();
-  }
-}*/

@@ -79,6 +79,7 @@ flutter:
     - assets/images/examen1.png
     - assets/icons/LogoApp.svg
     - assets/icons/LogoApp2.png
+    - assets/tuopinion.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

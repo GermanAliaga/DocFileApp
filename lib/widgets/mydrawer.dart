@@ -1,3 +1,4 @@
+import 'package:docfileapp/pages/about.dart';
 import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:docfileapp/pages/preferences.dart';
@@ -56,6 +57,14 @@ class _MyDrawerState extends State<MyDrawer> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const PreferencePage()));
+          },
+        ),
+        ListTile(
+          title: const Text('Tu opinión'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Tuopinion()));
           },
         ),
         ListTile(
