@@ -1,5 +1,6 @@
 import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
+import 'package:docfileapp/pages/preferences.dart';
 import 'package:docfileapp/pages/user.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,16 @@ class _MyDrawerState extends State<MyDrawer> {
             Navigator.pop(context);
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const AddFile()));
+          },
+        ),
+        ListTile(
+          title: const Text('Configuraciones'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PreferencePage()));
           },
         ),
         ListTile(
