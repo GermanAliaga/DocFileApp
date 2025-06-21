@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class Tuopinion extends StatefulWidget {
   const Tuopinion({super.key});
@@ -56,12 +57,25 @@ class _TuopinionState extends State<Tuopinion> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+            onPressed: () {
+              String sms = respuestas.join('\n');
+              _sendSMS(sms);
+              Navigator.pop(context);
+            },
+            child: const Text('Enviar'),
           ),
         ],
       ),
     );
+  }
+
+  void _sendSMS(String sms) {
+    Email mail = Email(
+      body: sms,
+      subject: 'Valorización aplicación',
+      recipients: ['deutsch2701@outlook.cl'],
+    );
+    FlutterEmailSender.send(mail);
   }
 
   @override
@@ -93,7 +107,7 @@ class _TuopinionState extends State<Tuopinion> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(items[index]["titulo"] ?? ""),
-                              Text('${items[index]["opciones"]}'), // ✅
+                              Text('${items[index]["opciones"]}'),
                               Slider(
                                 value: sliderValues[index] ?? 0.0,
                                 max: 5,
