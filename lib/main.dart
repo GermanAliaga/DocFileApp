@@ -1,4 +1,5 @@
 import 'package:docfileapp/domain/entities/preference.dart';
+import 'package:docfileapp/domain/entities/user.dart';
 import 'package:docfileapp/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AppData()),
         ChangeNotifierProvider(create: (_) => Category()),
+        ChangeNotifierProvider(create: (_) => Perfil()),
       ],
       child: const AppRoot(),
     );
@@ -29,7 +31,6 @@ class AppRoot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appData = context.watch<AppData>();
-    final category = context.watch<Category>();
 
     return MaterialApp(
       title: 'Flutter Demo',

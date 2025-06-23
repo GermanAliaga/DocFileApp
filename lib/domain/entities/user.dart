@@ -1,18 +1,46 @@
 import 'package:flutter/material.dart';
 
-class User extends ChangeNotifier {
-  late String name;
-  late String weight;
-  late String height;
-  late String sex;
-  late List<String> sickness = [];
+class Perfil extends ChangeNotifier {
+  late String _name = 'John Doe';
+  String get name => _name;
+  late String _age = '25';
+  String get age => _age;
+  late String _weight = '100';
+  String get weight => _weight;
+  late String _height = '178';
+  String get height => _height;
+  late String _sex = 'Masculino';
+  String get sex => _sex;
+  late List<String> sexs = ['Femenino', 'Masculino'];
+  late List<String> sickness = ['Asma', 'Escoliosis'];
 
-  void editInformation(String nombre, String peso, String altura, String sexo)
+  void editName(String nombre)
   {
-    name = nombre;
-    weight = peso;
-    height = altura;
-    sex = sexo;
+    _name = nombre;
+    notifyListeners();
+  }
+
+  void editAge(String edad)
+  {
+    _age = edad;
+    notifyListeners();
+  }
+
+  void editWeight(String peso)
+  {
+    _weight = peso;
+    notifyListeners();
+  }
+
+  void editHeight(String altura)
+  {
+    _height = altura;
+    notifyListeners();
+  }
+
+  void editSex(String sexo)
+  {
+    _sex = sexo;
     notifyListeners();
   }
 

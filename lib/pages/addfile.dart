@@ -119,7 +119,7 @@ class _AddFileState extends State<AddFile> {
                     ),),),
                 ElevatedButton(
                   onPressed: () {
-                    //medicCategory.AddExam(name, category, date, image);
+                    medicCategory.addExam(name, category, date, image);
                     Navigator.pop(context);
                     Navigator.push(
                         context,

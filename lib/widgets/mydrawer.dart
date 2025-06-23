@@ -2,7 +2,7 @@ import 'package:docfileapp/pages/about.dart';
 import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:docfileapp/pages/preferences.dart';
-import 'package:docfileapp/pages/user.dart';
+import 'package:docfileapp/pages/perfil.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatefulWidget {

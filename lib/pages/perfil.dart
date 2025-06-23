@@ -1,5 +1,9 @@
+import 'package:docfileapp/domain/entities/user.dart';
+import 'package:docfileapp/pages/edituser.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 
 class User extends StatefulWidget {
   const User({super.key});
@@ -9,50 +13,63 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
+  late TextEditingController _controller;
+
+  @override
+  void initState()
+  {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  void dispose()
+  {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<String> elements = [
-      'Asma',
-      'Diabetes',
-      'Hipertensión',
-      'Hipotiroidismo'
-    ];
+  Perfil usuario = Provider.of<Perfil>(context);
+  List<String> elements = usuario.sickness;
+  late String enfermedad;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Perfil'),
+        actions: <Widget>[IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => const EditUser()));}, icon: const Icon(Icons.edit))],
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       drawer: const MyDrawer(),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const SizedBox(
+          SizedBox(
             height: 250,
             width: 300,
             child: Card(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.person,
                         size: 100,
                       ),
                       Text(
-                        'Jhon Doe',
-                        style: TextStyle(fontSize: 25),
+                        usuario.name,
                       ),
                       Text(
-                        'Edad: 25',
-                        style: TextStyle(fontSize: 15),
+                        'Edad: ${usuario.age}',
                       ),
                       Text(
-                        'Altura: 180 cm',
-                        style: TextStyle(fontSize: 15),
+                        'Altura: ${usuario.height} cm',
                       ),
                       Text(
-                        'Peso: 100 kg',
-                        style: TextStyle(fontSize: 15),
+                        'Peso: ${usuario.weight} kg',
+                      ),
+                      Text(
+                        'Sexo: ${usuario.sex}',
                       ),
                     ])),
           ),
@@ -85,15 +102,20 @@ class _UserState extends State<User> {
                       const Text(
                         'Nombre enfermedad',
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _controller,  
+                        onChanged: (value) {
+                          enfermedad = value;
+                        },        
                           maxLines: 3,
                           textAlign: TextAlign.justify,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Ingresar nombre',
                           )),
                       ElevatedButton(
                         onPressed: () {
+                          usuario.addSickness(enfermedad);
                           Navigator.pop(context);
                           Navigator.push(
                               context,

@@ -1,4 +1,4 @@
-import 'package:docfileapp/pages/user.dart';
+import 'package:docfileapp/pages/perfil.dart';
 import 'package:flutter/material.dart';
 
 class AddSickness extends StatefulWidget {
