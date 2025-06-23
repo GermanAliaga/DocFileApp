@@ -1,6 +1,10 @@
+import 'package:docfileapp/domain/entities/category.dart';
+import 'package:docfileapp/domain/entities/exam.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
+import 'package:docfileapp/pages/takephoto.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddFile extends StatefulWidget {
   const AddFile({super.key});
@@ -18,9 +22,30 @@ const List<String> categorias = <String>[
 
 class _AddFileState extends State<AddFile> {
   String dropdownvalue = categorias.first;
+  late TextEditingController _controller;
+
+  late String name;
+  late String category;
+  late String date;
+  late String image;
+
+  @override
+  void initState()
+  {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  void dispose()
+  {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+  final medicCategory = Provider.of<Category>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -37,8 +62,12 @@ class _AddFileState extends State<AddFile> {
                   'Nombre examen:',
                   style: TextStyle(fontSize: 15),
                 ),
-                const TextField(
-                    decoration: InputDecoration(
+                TextField(
+                  controller: _controller,
+                  onSubmitted: (String value) {
+                    name = value;
+                  },
+                    decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Ingresar nombre',
                 )),
@@ -46,8 +75,12 @@ class _AddFileState extends State<AddFile> {
                   'Fecha realización',
                   style: TextStyle(fontSize: 15),
                 ),
-                const TextField(
-                    decoration: InputDecoration(
+                TextField(
+                  controller: _controller,
+                  onSubmitted: (String value) {
+                    date = value;
+                  },
+                    decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Ingresar fecha',
                 )),
@@ -60,6 +93,7 @@ class _AddFileState extends State<AddFile> {
                   onChanged: (String? value) {
                     setState(() {
                       dropdownvalue = value!;
+                      category = value;
                     });
                   },
                   items:
@@ -68,7 +102,13 @@ class _AddFileState extends State<AddFile> {
                   }).toList(),
                 ),
                 const Text('Incluir imagen'),
-                const SizedBox(
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const TakePhoto()));
+                    });
+                  },
+                  child: const SizedBox(
                     width: 150,
                     height: 150,
                     child: Card(
@@ -76,9 +116,10 @@ class _AddFileState extends State<AddFile> {
                         Icons.add,
                         size: 100,
                       ),
-                    )),
+                    ),),),
                 ElevatedButton(
                   onPressed: () {
+                    //medicCategory.AddExam(name, category, date, image);
                     Navigator.pop(context);
                     Navigator.push(
                         context,

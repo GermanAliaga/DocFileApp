@@ -2,6 +2,7 @@ import 'package:docfileapp/domain/entities/preference.dart';
 import 'package:docfileapp/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:docfileapp/domain/entities/category.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,26 +13,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<AppData>(
-      create: (context) => AppData(),
-      builder: (context, child) {
-        final appData = context.watch<AppData>();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppData()),
+        ChangeNotifierProvider(create: (_) => Category()),
+      ],
+      child: const AppRoot(),
+    );
+  }
+}
 
-        return MaterialApp(
-          title: 'Flutter Demo',
-          theme: appData.lightTheme.copyWith(
-            textTheme:
-                appData.lightTheme.textTheme.apply(fontFamily: appData.font),
-          ),
-          darkTheme: appData.darkTheme.copyWith(
-            textTheme:
-                appData.darkTheme.textTheme.apply(fontFamily: appData.font),
-          ),
-          themeMode: appData.themeDark ? ThemeMode.dark : ThemeMode.light,
-          debugShowCheckedModeBanner: false,
-          home: const SplashScreen(),
-        );
-      },
+class AppRoot extends StatelessWidget {
+  const AppRoot({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final appData = context.watch<AppData>();
+    final category = context.watch<Category>();
+
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: appData.lightTheme.copyWith(
+        textTheme: appData.lightTheme.textTheme.apply(
+          fontFamily: appData.font,
+        ),
+      ),
+      darkTheme: appData.darkTheme.copyWith(
+        textTheme: appData.darkTheme.textTheme.apply(
+          fontFamily: appData.font,
+        ),
+      ),
+      themeMode: appData.themeDark ? ThemeMode.dark : ThemeMode.light,
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
     );
   }
 }
