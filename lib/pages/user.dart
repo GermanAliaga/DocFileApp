@@ -31,7 +31,6 @@ class _UserState extends State<User> {
             height: 250,
             width: 300,
             child: Card(
-                color: Color.fromARGB(248, 146, 215, 232),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -69,7 +68,6 @@ class _UserState extends State<User> {
                     padding: const EdgeInsets.all(3),
                     child: ListTile(
                       title: Text(elements[index]),
-                      tileColor: const Color.fromARGB(248, 117, 208, 231),
                     ));
               },
             ),

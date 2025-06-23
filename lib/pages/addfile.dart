@@ -67,11 +67,11 @@ class _AddFileState extends State<AddFile> {
                     return DropdownMenuItem(value: value, child: Text(value));
                   }).toList(),
                 ),
+                const Text('Incluir imagen'),
                 const SizedBox(
-                    width: 300,
-                    height: 300,
+                    width: 150,
+                    height: 150,
                     child: Card(
-                      color: Color.fromARGB(248, 138, 210, 227),
                       child: Icon(
                         Icons.add,
                         size: 100,
