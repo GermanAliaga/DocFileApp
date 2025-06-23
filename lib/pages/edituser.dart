@@ -29,8 +29,8 @@ class _EditUserState extends State<EditUser> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final perfil = Provider.of<Perfil>(context, listen: false);
-    dropdownvalue = perfil.sex;
+    final usuario = Provider.of<Perfil>(context, listen: false);
+    dropdownvalue = usuario.sex;
   }
 
   @override
@@ -54,6 +54,7 @@ class _EditUserState extends State<EditUser> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _buildRow('Cambiar nombre', _nameController, usuario.editName),
             _buildRow('Cambiar edad', _ageController, usuario.editAge),
@@ -107,7 +108,7 @@ class _EditUserState extends State<EditUser> {
             onSubmitted: onSubmit,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Nuevo valor',
+              hintText: '...',
             ),
           ),
         ),
