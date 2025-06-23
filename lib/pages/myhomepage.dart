@@ -1,6 +1,9 @@
+import 'package:docfileapp/domain/entities/category.dart';
+import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:docfileapp/pages/detailcategory.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -26,13 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final List<String> elements = [
-      'Cardiología',
-      'Traumatología',
-      'Diabetología',
-      'Kinesiología'
-    ];
+  Widget build(BuildContext context) {  
+    final medicCategory = Provider.of<Sistema>(context);
+    final List<Category> elements = medicCategory.categoria;
+    late String name;
 
     return Scaffold(
       appBar: AppBar(
@@ -46,45 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
           return Padding(
               padding: const EdgeInsets.all(3),
               child: ListTile(
-                title: Text(elements[index]),
+                title: Text('${elements[index]}'),
                 onTap: () {
-                  switch (index) {
-                    case 0:
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const DetailCategory(title: 'Cardiología')));
-                      break;
-                    case 1:
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DetailCategory(
-                                  title: 'Traumatología')));
-                      break;
-                    case 2:
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const DetailCategory(title: 'Diabetología')));
-                      break;
-                    case 3:
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const DetailCategory(title: 'Kinesiología')));
-                      break;
-                    default:
-                      const snackbar = SnackBar(content: Text('wrong'));
-                      break;
-                  }
+                  Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => DetailCategory(title: elements[index].name)));
                 },
               ));
         },
@@ -103,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       TextField(
                         controller: _controller,  
                         onChanged: (value) {
-                          //enfermedad = value;
+                          name = value;
                         },        
                           maxLines: 3,
                           textAlign: TextAlign.justify,
@@ -113,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           )),
                       ElevatedButton(
                         onPressed: () {
-                          //usuario.addSickness(enfermedad);
+                          medicCategory.addCategory(name);
                         },
                         child: const Text('Agregar categoria'),
                       ),

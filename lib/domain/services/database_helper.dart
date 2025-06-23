@@ -1,4 +1,4 @@
-import 'package:docfileapp/domain/entities/sistem.dart';
+/*import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -66,4 +66,4 @@ class DataBaseHelper {
     final db = await database;
     await db.delete('Examen');
   }
-}
+}*/

@@ -1,9 +1,9 @@
 import 'package:docfileapp/domain/entities/preference.dart';
+import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:docfileapp/domain/entities/user.dart';
 import 'package:docfileapp/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:docfileapp/domain/entities/category.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppData()),
-        ChangeNotifierProvider(create: (_) => Category()),
+        ChangeNotifierProvider(create: (_) => Sistema()),
         ChangeNotifierProvider(create: (_) => Perfil()),
       ],
       child: const AppRoot(),

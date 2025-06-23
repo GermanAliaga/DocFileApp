@@ -1,26 +1,15 @@
-class Sistema {
-  var id;
-  var categoria;
-  var nombre;
-  var fecha;
-  var imagen;
+import 'package:docfileapp/domain/entities/category.dart';
+import 'package:flutter/material.dart';
 
-  Sistema({this.id, required this.categoria, required this.nombre, required this.fecha, required this.imagen});
+class Sistema extends ChangeNotifier{
+  late List<Category> _categoria = [];
+  List<Category> get categoria => _categoria;
+  late Category cat;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'categoria': categoria,
-      'nombre': nombre,
-      'fecha': fecha,
-      'imagen': imagen,
-    };
+  void addCategory(String name)
+  {
+    cat.name = name;
+    _categoria.add(cat);
+    notifyListeners();
   }
-
-  factory Sistema.fromMap(Map<String, dynamic> map) {
-    return Sistema(id: map['id'], categoria: map['categoria'], nombre: map['nombre'], fecha: map['fecha'], imagen: map['imagen']);
-  }
-
-  @override
-  String toString() => 'Examen(id: $id, categoria: $categoria, nombre: $nombre, fecha: $fecha, imagen: $imagen)';
 }

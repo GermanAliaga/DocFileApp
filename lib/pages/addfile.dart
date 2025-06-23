@@ -1,5 +1,4 @@
 import 'package:docfileapp/domain/entities/category.dart';
-import 'package:docfileapp/domain/entities/exam.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:docfileapp/pages/takephoto.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
@@ -47,7 +46,7 @@ class _AddFileState extends State<AddFile> {
 
   @override
   Widget build(BuildContext context) {
-  final medicCategory = Provider.of<Category>(context);
+  //final medicCategory = Provider.of<Category>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -123,7 +122,7 @@ class _AddFileState extends State<AddFile> {
                     ),),),
                 ElevatedButton(
                   onPressed: () {
-                    medicCategory.addExam(name, category, date, image);
+                    //medicCategory.addExam(name, category, date, image);
                     Navigator.pop(context);
                     Navigator.push(
                         context,

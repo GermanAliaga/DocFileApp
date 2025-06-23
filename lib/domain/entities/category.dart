@@ -1,7 +1,6 @@
 import 'package:docfileapp/domain/entities/exam.dart';
-import 'package:flutter/material.dart';
 
-class Category extends ChangeNotifier {
+class Category {
   late String name;
   late List<Exam> exams = [];
   
@@ -14,6 +13,5 @@ class Category extends ChangeNotifier {
     exam.date = date;
     exam.images = image;
     exams.add(exam);
-    notifyListeners();
   }
 }
