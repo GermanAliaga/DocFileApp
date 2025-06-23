@@ -22,7 +22,8 @@ const List<String> categorias = <String>[
 
 class _AddFileState extends State<AddFile> {
   String dropdownvalue = categorias.first;
-  late TextEditingController _controller;
+  late TextEditingController _controllerName;
+  late TextEditingController _controllerDate;
 
   late String name;
   late String category;
@@ -33,12 +34,14 @@ class _AddFileState extends State<AddFile> {
   void initState()
   {
     super.initState();
-    _controller = TextEditingController();
+    _controllerName = TextEditingController();
+    _controllerDate = TextEditingController();
   }
 
   void dispose()
   {
-    _controller.dispose();
+    _controllerName.dispose();
+    _controllerDate.dispose();
     super.dispose();
   }
 
@@ -52,7 +55,8 @@ class _AddFileState extends State<AddFile> {
         title: const Text('Agregar documento'),
       ),
       drawer: const MyDrawer(),
-      body: Center(
+      body: ListView(children: [
+        Center(
         child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -63,7 +67,7 @@ class _AddFileState extends State<AddFile> {
                   style: TextStyle(fontSize: 15),
                 ),
                 TextField(
-                  controller: _controller,
+                  controller: _controllerName,
                   onSubmitted: (String value) {
                     name = value;
                   },
@@ -76,7 +80,7 @@ class _AddFileState extends State<AddFile> {
                   style: TextStyle(fontSize: 15),
                 ),
                 TextField(
-                  controller: _controller,
+                  controller: _controllerDate,
                   onSubmitted: (String value) {
                     date = value;
                   },
@@ -109,12 +113,12 @@ class _AddFileState extends State<AddFile> {
                     });
                   },
                   child: const SizedBox(
-                    width: 150,
-                    height: 150,
+                    width: 250,
+                    height: 250,
                     child: Card(
                       child: Icon(
                         Icons.add,
-                        size: 100,
+                        size: 150,
                       ),
                     ),),),
                 ElevatedButton(
@@ -131,6 +135,6 @@ class _AddFileState extends State<AddFile> {
               ],
             )),
       ),
-    );
+    ]));
   }
 }

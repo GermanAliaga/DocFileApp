@@ -1,5 +1,4 @@
 import 'package:docfileapp/pages/about.dart';
-import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
 import 'package:docfileapp/pages/preferences.dart';
 import 'package:docfileapp/pages/perfil.dart';
@@ -39,14 +38,6 @@ class _MyDrawerState extends State<MyDrawer> {
             Navigator.pop(context);
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const MyHomePage()));
-          },
-        ),
-        ListTile(
-          title: const Text('Agregar documento'),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const AddFile()));
           },
         ),
         ListTile(

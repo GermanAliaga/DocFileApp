@@ -130,7 +130,7 @@ class _UserState extends State<User> {
         child: const Icon(
           Icons.add,
           size: 40,
-          semanticLabel: 'AddSickness',
+          semanticLabel: 'Agregar',
         ),
       ),
     );

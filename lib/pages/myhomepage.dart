@@ -12,6 +12,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController _controller;
+
+  @override
+  void initState()
+  {
+    super.initState();
+    _controller = TextEditingController();
+  }
+  void dispose()
+  {
+    _controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> elements = [
@@ -76,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ));
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => showDialog<String>(
+        floatingActionButton: FloatingActionButton(onPressed: (){setState(() {
+         showDialog<String>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
                     content: SingleChildScrollView(
@@ -85,32 +98,34 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       const Text(
-                        'Nombre especialidad',
+                        'Nombre categoria',
                       ),
-                      const TextField(
-                          decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Ingresar nombre',
-                      )),
+                      TextField(
+                        controller: _controller,  
+                        onChanged: (value) {
+                          //enfermedad = value;
+                        },        
+                          maxLines: 3,
+                          textAlign: TextAlign.justify,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Ingresar nombre',
+                          )),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MyHomePage()));
+                          //usuario.addSickness(enfermedad);
                         },
-                        child: const Text('Agregar especialidad'),
-                      )
+                        child: const Text('Agregar categoria'),
+                      ),
                     ],
                   ),
-                ))),
-        child: const Icon(
+                )));
+        const Icon(
           Icons.add,
           size: 40,
-          semanticLabel: 'AddSickness',
-        ),
-      ),
+          semanticLabel: 'AddCategory',
+        );
+        });}, child: const Icon(Icons.add),),
     );
   }
 }

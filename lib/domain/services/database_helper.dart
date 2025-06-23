@@ -1,4 +1,4 @@
-/*import 'package:docfileapp/domain/entities/exam.dart';
+import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -24,7 +24,7 @@ class DataBaseHelper {
 
   Future<Database> _initDatabase() async {
     final dbPath = await getDatabasesPath();
-    final path = join(dbPath, 'activity_database.db');
+    final path = join(dbPath, 'sistema_database.db');
 
     return await openDatabase(
       path,
@@ -45,7 +45,7 @@ class DataBaseHelper {
    ''');
   }
 
-  Future<int> insertActivity(Exam examen) async {
+  Future<int> insertActivity(Sistema examen) async {
     final db = await database;
     return await db.insert(
       'Examen',
@@ -54,16 +54,16 @@ class DataBaseHelper {
     );
   }
 
-  Future<List<Exam>> getActivities() async {
+  Future<List<Sistema>> getExams() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('Examen');
     return List.generate(maps.length, (i) {
-      return Exam.fromMap(maps[i]);
+      return Sistema.fromMap(maps[i]);
     });
   }
 
-  Future<void> clearActividades() async {
+  Future<void> clearExams() async {
     final db = await database;
     await db.delete('Examen');
   }
-}*/
+}

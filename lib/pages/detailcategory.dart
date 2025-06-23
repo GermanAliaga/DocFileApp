@@ -1,3 +1,4 @@
+import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/detailexam.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
@@ -69,6 +70,11 @@ class _DetailCategoryState extends State<DetailCategory> {
                       }
                     }));
           },
-        ));
+        ), 
+        floatingActionButton: FloatingActionButton(onPressed: (){setState(() {
+          Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AddFile()));
+        });}, child: const Icon(Icons.add),),);
   }
 }
