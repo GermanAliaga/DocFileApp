@@ -1,4 +1,6 @@
-class Exam {
+import 'package:flutter/material.dart';
+
+class Exam extends ChangeNotifier {
   final String name;
   final String category;
   final String date;

@@ -1,4 +1,5 @@
 import 'package:docfileapp/domain/entities/category.dart';
+import 'package:docfileapp/domain/entities/exam.dart';
 import 'package:docfileapp/domain/entities/preference.dart';
 import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:docfileapp/domain/entities/user.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AppData()),
         ChangeNotifierProvider(create: (_) => Sistema()),
         ChangeNotifierProvider(create: (_) => Category(name: '')),
+        ChangeNotifierProvider(create: (_) => Exam(name: '', category: '', date: '', images: '')),
         ChangeNotifierProvider(create: (_) => Perfil()),
       ],
       child: const AppRoot(),
