@@ -1,6 +1,13 @@
 class Exam {
-  late String name;
-  late String category;
-  late String date;
-  late String images;
+  final String name;
+  final String category;
+  final String date;
+  final String images;
+
+  Exam({
+    required this.name,
+    required this.category,
+    required this.date,
+    required this.images,
+  });
 }

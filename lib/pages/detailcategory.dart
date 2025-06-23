@@ -1,7 +1,10 @@
+import 'package:docfileapp/domain/entities/exam.dart';
 import 'package:docfileapp/pages/addfile.dart';
 import 'package:docfileapp/pages/detailexam.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DetailCategory extends StatefulWidget {
   const DetailCategory({super.key, required this.title});
@@ -14,20 +17,17 @@ class DetailCategory extends StatefulWidget {
 
 class _DetailCategoryState extends State<DetailCategory> {
   @override
-  Widget build(BuildContext context) {
-    final List<String> elements = [
-      'Examen 1',
-      'Examen 2',
-      'Examen 3',
-      'Examen 4'
-    ];
+  Widget build(BuildContext context) {    
+    final selectedCategory = Provider.of<Category>(context);
+    //final List<Exam> elements = selectedCategory.exams;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
         drawer: const MyDrawer(),
-        body: ListView.builder(
+        /*body: ListView.builder(
           itemCount: elements.length,
           itemBuilder: (context, index) {
             return Padding(
@@ -75,6 +75,6 @@ class _DetailCategoryState extends State<DetailCategory> {
           Navigator.push(context, MaterialPageRoute(
                                   builder: (context) =>
                                       const AddFile()));
-        });}, child: const Icon(Icons.add),),);
+        });}, child: const Icon(Icons.add),),*/);
   }
 }

@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return Padding(
               padding: const EdgeInsets.all(3),
               child: ListTile(
-                title: Text('${elements[index]}'),
+                title: Text('${elements[index].name}'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                                   builder: (context) => DetailCategory(title: elements[index].name)));
@@ -79,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ElevatedButton(
                         onPressed: () {
                           medicCategory.addCategory(name);
+                          Navigator.pop(context);
                         },
                         child: const Text('Agregar categoria'),
                       ),
