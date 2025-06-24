@@ -1,6 +1,7 @@
 import 'package:docfileapp/domain/entities/category.dart';
 import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
+import 'package:docfileapp/pages/takephoto.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
 
@@ -78,7 +79,21 @@ class _AddFileState extends State<AddFile> {
                     decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Ingresar fecha',
-                )),
+                )),GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const TakePhoto()));
+                    });
+                  },
+                  child: const SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: Card(
+                      child: Icon(
+                        Icons.add,
+                        size: 150,
+                      ),
+                    ),),),
                 ElevatedButton(
                   onPressed: () {
                     widget.cat.addExam(name, date, 'assets/images/examen1.png');
