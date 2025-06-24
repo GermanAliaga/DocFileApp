@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('${elements[index].name}'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => DetailCategory(title: elements[index].name)));
+                                  builder: (context) => DetailCategory(title: elements[index].name, cat: elements[index],)));
                 },
               ));
         },

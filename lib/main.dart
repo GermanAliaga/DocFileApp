@@ -20,8 +20,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AppData()),
         ChangeNotifierProvider(create: (_) => Sistema()),
-        ChangeNotifierProvider(create: (_) => Category(name: '')),
-        ChangeNotifierProvider(create: (_) => Exam(name: '', category: '', date: '', images: '')),
         ChangeNotifierProvider(create: (_) => Perfil()),
       ],
       child: const AppRoot(),

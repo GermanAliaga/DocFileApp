@@ -12,7 +12,7 @@ class Perfil extends ChangeNotifier {
   late String _sex = 'Masculino';
   String get sex => _sex;
   late List<String> sexs = ['Femenino', 'Masculino'];
-  late List<String> sickness = ['Asma', 'Escoliosis'];
+  late List<String> sickness = [];
 
   void editName(String nombre)
   {

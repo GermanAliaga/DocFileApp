@@ -29,8 +29,8 @@ class _EditUserState extends State<EditUser> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final usuario = Provider.of<Perfil>(context, listen: false);
-    dropdownvalue = usuario.sex;
+    final perfil = Provider.of<Perfil>(context, listen: false);
+    dropdownvalue = perfil.sex;
   }
 
   @override
@@ -105,10 +105,10 @@ class _EditUserState extends State<EditUser> {
           width: 200,
           child: TextField(
             controller: controller,
-            onSubmitted: onSubmit,
+            onChanged: onSubmit,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              hintText: '...',
+              hintText: 'Nuevo valor',
             ),
           ),
         ),

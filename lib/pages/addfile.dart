@@ -1,33 +1,27 @@
 import 'package:docfileapp/domain/entities/category.dart';
+import 'package:docfileapp/domain/entities/sistem.dart';
 import 'package:docfileapp/pages/myhomepage.dart';
-import 'package:docfileapp/pages/takephoto.dart';
 import 'package:docfileapp/widgets/mydrawer.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AddFile extends StatefulWidget {
-  const AddFile({super.key});
+  const AddFile({super.key, required this.cat});
+
+  final Category cat;
 
   @override
   State<AddFile> createState() => _AddFileState();
 }
 
-const List<String> categorias = <String>[
-  'Cardiología',
-  'Traumatología',
-  'Diabetología',
-  'Kinesiología'
-];
-
 class _AddFileState extends State<AddFile> {
-  String dropdownvalue = categorias.first;
   late TextEditingController _controllerName;
   late TextEditingController _controllerDate;
+  
+  late Sistema sistem;
 
-  late String name;
-  late String category;
-  late String date;
-  late String image;
+  late String name = '';
+  late String date = '';
+  late String image = '';
 
   @override
   void initState()
@@ -46,8 +40,6 @@ class _AddFileState extends State<AddFile> {
 
   @override
   Widget build(BuildContext context) {
-  //final medicCategory = Provider.of<Category>(context);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -87,42 +79,9 @@ class _AddFileState extends State<AddFile> {
                   border: OutlineInputBorder(),
                   hintText: 'Ingresar fecha',
                 )),
-                const Text(
-                  'Categoría',
-                  style: TextStyle(fontSize: 15),
-                ),
-                DropdownButton<String>(
-                  value: dropdownvalue,
-                  onChanged: (String? value) {
-                    setState(() {
-                      dropdownvalue = value!;
-                      category = value;
-                    });
-                  },
-                  items:
-                      categorias.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem(value: value, child: Text(value));
-                  }).toList(),
-                ),
-                const Text('Incluir imagen'),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const TakePhoto()));
-                    });
-                  },
-                  child: const SizedBox(
-                    width: 250,
-                    height: 250,
-                    child: Card(
-                      child: Icon(
-                        Icons.add,
-                        size: 150,
-                      ),
-                    ),),),
                 ElevatedButton(
                   onPressed: () {
-                    //medicCategory.addExam(name, category, date, image);
+                    widget.cat.addExam(name, date, 'assets/images/examen1.png');
                     Navigator.pop(context);
                     Navigator.push(
                         context,

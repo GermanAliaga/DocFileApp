@@ -1,9 +1,11 @@
+import 'package:docfileapp/domain/entities/exam.dart';
 import 'package:flutter/material.dart';
 
 class DetailExam extends StatefulWidget {
-  const DetailExam({super.key, required this.title});
+  const DetailExam({super.key, required this.title, required this.examen});
 
   final String title;
+  final Exam examen;
 
   @override
   State<DetailExam> createState() => _DetailExamState();
@@ -17,12 +19,15 @@ class _DetailExamState extends State<DetailExam> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: SizedBox(
+      body: ListView(children: [
+      SizedBox(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                Row(children: [
+            Text('Fecha examen: ${widget.examen.date}'),],),
             Image.asset(
-              'assets/images/examen1.png',
+              widget.examen.images,
             ),
             FloatingActionButton(
               onPressed: () {
@@ -33,6 +38,6 @@ class _DetailExamState extends State<DetailExam> {
               ),
             )
           ])),
-    );
+    ]));
   }
 }

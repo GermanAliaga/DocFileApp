@@ -6,7 +6,8 @@ class Sistema extends ChangeNotifier {
   List<Category> get categoria => _categoria;
 
   void addCategory(String name) {
-    final newCategory = Category(name: name);
+    final newCategory = Category();
+    newCategory.name = name;
     _categoria.add(newCategory);
     notifyListeners();
   }
