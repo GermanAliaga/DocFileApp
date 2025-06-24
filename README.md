@@ -2,7 +2,7 @@
 # DocFileApp
 ### Germán Aliaga
 #### url video Youtube: 
-#### apk aplicación: 
+#### apk aplicación: https://drive.google.com/file/d/11ovjHlJrpmkzUDYH8FbbFiQJ7hFcvAb6/view?usp=sharing
 DocFileApp es una aplicación que permite tener en el celular todos los resultados de exámenes de salud realizados alguna vez por el usuario, mantreniendo así un historial medico del paciente a la mano, además de estar ordenado por especialidades médicas.
 También es posible dentro de la pantalla de usuario agregar los datos del paciente, como su edad, peso, altura, nombre y enfermedades padecidas, permitiendo al paciente recordar con mayor claridad sus enfermedades.
 
